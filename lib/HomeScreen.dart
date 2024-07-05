@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget{
    return  Scaffold(
      appBar: AppBar(
        backgroundColor: Colors.cyan,
-       title: const Text("Get Material App & GetUtils Example",
+       title: const Text("GetX Change Light and Dark Theme",
          style: TextStyle(fontSize: 14),
        ),
      ),
