@@ -57,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                   //     Get.back();
                   //   }, icon:const Icon(Icons.cancel),),
                   //   IconButton(onPressed: (){
-                  //      //Navigator.pop;
+                  //      //Navigator.pop(context);
                   //      Get.back();
                   //   }, icon:const Icon(Icons.confirmation_num),)
                   // ],
@@ -87,7 +87,7 @@ class HomeScreen extends StatelessWidget {
               title: const Text("GetX Bottom sheet "),
               subtitle: const Text("GetX Light/Dark theme."),
               onTap: () {
-                // Dialog show
+                // bottomSheet show
                 Get.bottomSheet(
                  Container(
                    decoration: const  BoxDecoration(
