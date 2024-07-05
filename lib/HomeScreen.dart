@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -90,12 +91,17 @@ class HomeScreen extends StatelessWidget {
                 // bottomSheet show
                 Get.bottomSheet(
                  Container(
-                   decoration: const  BoxDecoration(
+                   height: 100,
+                   margin: const EdgeInsets.all(30),
+                   decoration:   BoxDecoration(
                      color: Colors.grey,
-                     borderRadius: BorderRadius.only(
-                       topLeft: Radius.circular(30),
-                       topRight: Radius.circular(30),
-                     )
+                     // borderRadius: BorderRadius.only(
+                     //   topLeft: Radius.circular(30),
+                     //   topRight: Radius.circular(30),
+                     // )
+                     borderRadius: BorderRadius.circular(40)
+
+
                    ),
                    child: Column(
                      children: [
