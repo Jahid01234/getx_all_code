@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_material_app/Routes/routes_name.dart';
-
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,27 +13,43 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.cyan,
-        title: const Text("Home Screen"),
+        backgroundColor: Colors.orange,
+        foregroundColor: Colors.white,
+        title: const Text("GetX MediaQuery Example"),
         centerTitle: true,
       ),
-      body: Center(
-        child: TextButton(
-          child: const Text("Go to screen one"),
-          onPressed: (){
-          // Get.to(const FirstScreen());
+      body: Column(
+        children: [
+          // 1st container
+          Container(
+            // Its normal use for MediaQuery
+            // height: MediaQuery.of(context).size.height * 0.2,
+            // width: MediaQuery.of(context).size.width * 1,
 
-            // Navigate to next screen without pop any screens
-            Get.toNamed(
-                RoutesName.firstScreen,
-                // list
-                arguments: [
-                  "Jahid",
-                  "Hasan"
-                ]
-            );
-          },
-        ),
+            // Here GetX mediaQuery
+            height: Get.height * 0.3,
+            width:  Get.width * 1,
+            decoration: const BoxDecoration(color: Colors.cyan),
+            child: const Center(
+              child: Text("Container-1"),
+            ),
+          ),
+           const SizedBox(height: 10),
+          // 2nd container
+          Container(
+            // // here static value define
+            // height: 50,
+            // width: double.maxFinite,
+
+            // Here GetX mediaQuery
+            height: Get.height * 0.2,
+            width:  Get.width * 1,
+            decoration: const BoxDecoration(color: Colors.purpleAccent),
+            child: const Center(
+              child: Text("Container-2"),
+            ),
+          ),
+        ],
       ),
     );
   }
