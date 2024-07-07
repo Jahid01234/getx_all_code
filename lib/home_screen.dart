@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_material_app/counter_controller.dart';
 
 class HomeScreen extends StatelessWidget {
-   HomeScreen({super.key});
+  HomeScreen({super.key});
 
   // Dependency injection
   final CounterController dependency = Get.put(CounterController());
@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.orange,
         foregroundColor: Colors.white,
         title: const Text(
-          "Get Builder using Counter App",
+          " Counter App using Obx ",
           style: TextStyle(fontSize: 12),
         ),
         centerTitle: true,
@@ -24,42 +24,28 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GetX<CounterController>(
-                builder: (controller){
-                  print("id:1");
-                  return Text(
-                    controller.count1.toString(),
-                    style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold
-                    ),
-                  );
-                }
+            Obx(() => Text(
+                dependency.count1.toString(),
+                style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold
+                ),
+              ),
             ),
             const SizedBox(height: 3),
-
-            GetX<CounterController>(
-                builder: (controller){
-                  print("id:2");
-                  return Text(
-                    controller.count2.toString(),
-                    style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold
-                    ),
-                  );
-                }
+            Obx(() => Text(
+                dependency.count2.toString(),
+                style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold
+                ),
+              ),
             ),
-
             const SizedBox(height: 3),
-
-            GetX<CounterController>(
-                builder: (controller){
-                  print("id:3");
-                  return Text(
-                    controller.count3.toString(),
-                    style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold
-                    ),
-                  );
-                }
+            Obx(() {
+                return Text(
+                  dependency.count3.toString(),
+                  style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold
+                  ),
+                );
+              },
             ),
-
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
