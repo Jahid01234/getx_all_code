@@ -8,6 +8,7 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
@@ -15,41 +16,44 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.orange,
         foregroundColor: Colors.white,
-        title: const Text("GetX MediaQuery Example"),
+        title: const Text("GetX localization & Change App Language ",
+        style: TextStyle(fontSize: 12),
+        ),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          // 1st container
-          Container(
-            // Its normal use for MediaQuery
-            // height: MediaQuery.of(context).size.height * 0.2,
-            // width: MediaQuery.of(context).size.width * 1,
-
-            // Here GetX mediaQuery
-            height: Get.height * 0.3,
-            width:  Get.width * 1,
-            decoration: const BoxDecoration(color: Colors.cyan),
-            child: const Center(
-              child: Text("Container-1"),
-            ),
-          ),
-           const SizedBox(height: 10),
-          // 2nd container
-          Container(
-            // // here static value define
-            // height: 50,
-            // width: double.maxFinite,
-
-            // Here GetX mediaQuery
-            height: Get.height * 0.2,
-            width:  Get.width * 1,
-            decoration: const BoxDecoration(color: Colors.purpleAccent),
-            child: const Center(
-              child: Text("Container-2"),
-            ),
-          ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+               children: [
+                 // "tr" use for translation
+                 Text("app_name".tr),
+                 Text("app_title".tr),
+                 const SizedBox(height: 30),
+                 Row(
+                   mainAxisAlignment: MainAxisAlignment.center,
+                   children: [
+                     ElevatedButton(
+                         onPressed: (){
+                           // language_code, country_code
+                           Get.updateLocale(
+                               const Locale("bn", "BD"),
+                           );
+                         },
+                         child: const Text("Bangla")
+                     ),
+                     const SizedBox(width: 10),
+                     ElevatedButton(
+                         onPressed: (){
+                           Get.updateLocale(
+                               const Locale("en", "US"),
+                           );
+                         },
+                         child: const Text("English")
+                     )
+                   ],
+                 )
+               ],
+        ),
       ),
     );
   }

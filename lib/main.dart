@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_material_app/home_screen.dart';
+import 'package:get_material_app/languages.dart';
+
+
 
 
 void main() {
@@ -12,10 +15,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return  GetMaterialApp(
       title: 'GetX Tutorial',
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      translations: Languages(),
+      //locale: Get.deviceLocale, // set initial device locale
+      locale: const Locale("bn", "BD"), // set initial locale
+      fallbackLocale: const Locale("en", "US"),
+      home: const HomeScreen(),
     );
   }
 }
