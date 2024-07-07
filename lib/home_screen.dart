@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onPressed: (){
           // Get.to(const FirstScreen());
 
-            // Navigate to next screen without pop any screen
+            // Navigate to next screen without pop any screens
             Get.toNamed(
                 RoutesName.firstScreen,
                 // list
