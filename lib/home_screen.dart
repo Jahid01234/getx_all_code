@@ -24,8 +24,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GetBuilder<CounterController>(
-                id: "ID1",
+            GetX<CounterController>(
                 builder: (controller){
                   print("id:1");
                   return Text(
@@ -37,8 +36,7 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 3),
 
-            GetBuilder<CounterController>(
-                id: "ID2",
+            GetX<CounterController>(
                 builder: (controller){
                   print("id:2");
                   return Text(
@@ -50,8 +48,8 @@ class HomeScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 3),
-            GetBuilder<CounterController>(
-                id: "ID3",
+
+            GetX<CounterController>(
                 builder: (controller){
                   print("id:3");
                   return Text(
