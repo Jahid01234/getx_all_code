@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_material_app/counter_controller.dart';
+import 'package:get_material_app/app/modules/home/controller/home_controller.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
-
-  // Dependency injection
-  final CounterController dependency = Get.put(CounterController());
+// GetView is a type of StatelessWidget. its special because it has provide a controller v
+class HomeView extends GetView<HomeController> {
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +13,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.orange,
         foregroundColor: Colors.white,
         title: const Text(
-          " Counter App using Obx ",
+          " Binding and Get Cli project structure ",
           style: TextStyle(fontSize: 12),
         ),
         centerTitle: true,
@@ -25,26 +23,26 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Obx(() => Text(
-                dependency.count1.toString(),
-                style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold
-                ),
+              controller.count1.toString(),
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold
               ),
+            ),
             ),
             const SizedBox(height: 3),
             Obx(() => Text(
-                dependency.count2.toString(),
-                style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold
-                ),
+              controller.count2.toString(),
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold
               ),
+            ),
             ),
             const SizedBox(height: 3),
             Obx(() {
-                return Text(
-                  dependency.count3.toString(),
-                  style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold
-                  ),
-                );
-              },
+              return Text(
+                controller.count3.toString(),
+                style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold
+                ),
+              );
+            },
             ),
             const SizedBox(height: 20),
             Row(
@@ -52,19 +50,19 @@ class HomeScreen extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    dependency.increment1();
+                    controller.increment1();
                   },
                   child: const Text("Button-1"),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    dependency.increment2();
+                    controller.increment2();
                   },
                   child: const Text("Button-2"),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    dependency.increment3();
+                    controller.increment3();
                   },
                   child: const Text("Button-3"),
                 ),

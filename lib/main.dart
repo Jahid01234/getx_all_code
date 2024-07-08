@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_material_app/home_screen.dart';
+import 'package:get_material_app/app/routes/app_routes.dart';
+import 'package:get_material_app/app/routes/routes_name.dart';
+
 
 
 
@@ -18,7 +20,8 @@ class MyApp extends StatelessWidget {
     return  GetMaterialApp(
       title: 'GetX Tutorial',
       debugShowCheckedModeBanner: false,
-      home:  HomeScreen(),
+      initialRoute: RoutesName.home,
+      getPages: AppRoutes.pages,
     );
   }
 }
