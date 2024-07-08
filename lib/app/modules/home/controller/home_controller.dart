@@ -1,19 +1,24 @@
 import 'package:get/get.dart';
 
 class HomeController extends GetxController{
-  RxInt count1 = 0.obs;
-  RxInt count2 = 0.obs;
-  RxInt count3 = 0.obs;
 
-  void increment1(){
-    count1++;
+  RxList<String> fruitName =[
+    'Apple',
+    'Mango',
+    'Banana',
+    'Orange'
+   ].obs;
+
+  RxList tempFruit =[ ].obs;
+
+  void addToFavourite(String value){
+    tempFruit.add(value);
   }
 
-  void increment2(){
-    count2++;
+   void removeToFavourite(String value){
+    tempFruit.remove(value);
   }
 
-  void increment3(){
-    count3++;
-  }
+
+
 }
