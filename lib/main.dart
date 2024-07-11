@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_material_app/home_screen.dart';
-
-
-
-
+import 'package:get_material_app/app/routes/routes_name.dart';
+import 'app/routes/app_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,10 +14,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return  GetMaterialApp(
       title: 'GetX Tutorial',
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+     initialRoute: RoutesName.home,
+     getPages: AppRoutes.page,
+     // home: HomeScreen(),
     );
   }
 }
